@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "935423384829",
+    "project_id": "rushta-app",
+    "storage_bucket": "rushta-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935423384829:android:f5499e9f6973f1a8977294",
+        "android_client_info": {
+          "package_name": "com.example.rushta_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGQLB6nNqdYrvNi2yNJebPR3oXSUKRIrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
