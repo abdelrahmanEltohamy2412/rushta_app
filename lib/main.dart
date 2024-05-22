@@ -3,6 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rushta_app/Design/home/ordersScreen/orderScreen.dart';
+import 'package:rushta_app/Design/home/storeScreen/storeScreen.dart';
 import 'package:rushta_app/Design/login_signUp/signUp.dart';
 
 import 'package:rushta_app/provider/provider.dart';
@@ -55,7 +57,9 @@ class MyApp extends StatelessWidget {
         AfterAddProduct.routName : (context)=>const AfterAddProduct(),
         ViewProfileScreen.routeName:(context)=> const ViewProfileScreen(),
         SignScreen.routeName :(context)=> SignScreen(),
-        SignUpScreen.routeName :(context)=>SignUpScreen()
+        SignUpScreen.routeName :(context)=>SignUpScreen(),
+        StoreScreen.routeNAme:(context)=>StoreScreen(),
+        OrderScreenhistory.routeName:(context)=>OrderScreenhistory()
 
 
 

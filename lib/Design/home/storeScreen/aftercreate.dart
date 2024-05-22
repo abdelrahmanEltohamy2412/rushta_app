@@ -9,7 +9,9 @@ import 'package:rushta_app/model/storedata.dart';
 import 'package:rushta_app/provider/provider.dart';
 
 import '../../../mytheme.dart';
+import '../../firebase_utils/firebase_utils.dart';
 import 'Addproduct.dart';
+import 'createStore.dart';
 
 
 class AfterCreate extends StatefulWidget {
@@ -75,7 +77,7 @@ class _AfterCreateState extends State<AfterCreate> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * .229,
+                height: MediaQuery.of(context).size.height * .25,
                 decoration: BoxDecoration(color: MyTheme.whiteColor),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -142,13 +144,20 @@ class _AfterCreateState extends State<AfterCreate> {
                       ],
                     ),
                     const Divider(),
-                    Text(
-                      'Remove Store',
+                    TextButton(
+                    onPressed: () {
+                      FireBaseUtils.deleteStore(storeData!).timeout(Duration(microseconds: 500), onTimeout: (){
+                        print('deleteeeeeeeeeeeeeeeeeeeeee');
+                        listProvider.getDataStore();
+
+                      });
+                      },
+                    child: Text(  'Remove Store',
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 16,
                           fontWeight: FontWeight.w500,
                           color: MyTheme.grayColor),
-                    )
+                    ))
                   ],
                 ),
               ),
@@ -191,5 +200,17 @@ class _AfterCreateState extends State<AfterCreate> {
         ),
       ),
     );
+  }
+  onpressed
+      (){
+    var listProvider = Provider.of<ListProvider>(context);
+    if(listProvider.storeDataList.isNotEmpty){
+      listProvider.storeDataList.removeAt(0);
+    }
+    setState(() {
+
+    });
+    return CreateStoreScreen();
+
   }
 }

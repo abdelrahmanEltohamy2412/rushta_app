@@ -35,8 +35,11 @@ class _AddProductState extends State<AddProduct> {
       backgroundColor: MyTheme.scaffoldColor,
       appBar: AppBar(
         backgroundColor: MyTheme.primaryColor,
-        leading: const Icon(
-          Icons.arrow_back,
+        leading:  IconButton(
+          onPressed: (){
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back),
           color: Colors.white,
         ),
         title: Text(

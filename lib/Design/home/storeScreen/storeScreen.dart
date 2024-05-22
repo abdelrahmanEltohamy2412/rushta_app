@@ -7,7 +7,7 @@ import 'noStore.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
-
+   static const String routeNAme= 'storeScreen';
   @override
   Widget build(BuildContext context) {
     var listProvider = Provider.of<ListProvider>(context) ;

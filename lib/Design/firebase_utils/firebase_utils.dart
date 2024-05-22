@@ -51,6 +51,11 @@ class FireBaseUtils {
 
   }
 
+  static Future<void> deleteStore ( StoreData? storeData)
+  {
+    return getStoreDataCollection().doc(storeData?.id).delete();
+  }
+
 
 
 }
