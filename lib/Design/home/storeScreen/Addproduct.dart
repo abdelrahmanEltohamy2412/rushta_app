@@ -1,5 +1,9 @@
 
+import 'dart:io';
+
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 import 'package:rushta_app/model/productmodel.dart';
@@ -21,6 +25,37 @@ class AddProduct extends StatefulWidget {
 
 class _AddProductState extends State<AddProduct> {
   var formKey = GlobalKey<FormState>();
+  File? file;
+  getImageCamera()async{
+    final ImagePicker picker = ImagePicker();
+    final XFile? imageCamera = await picker.pickImage(source: ImageSource.camera);
+    if (imageCamera !=null){
+      file=File(imageCamera.path);
+      var refStorage = FirebaseStorage.instance.ref('1.jpg');
+      await refStorage.putFile(file!);
+
+       //abdelerahman@gmail.com
+    }
+    setState(() {
+
+    });
+  }
+   // getImageGallery()async{
+   //  final ImagePicker picker = ImagePicker();
+   //
+   //  final XFile? imageGallery = await picker.pickImage(source: ImageSource.gallery);
+   //  if(imageGallery!=null){
+   //    file=File(imageGallery.path);
+   //    var refStorage = FirebaseStorage.instance.ref('1.jpg');
+   //    await refStorage.putFile(file!);
+   //  }
+   //
+   //      setState(() {
+   //
+   //      });
+   // }
+
+
   String ProductName = ' ';
   String CategoryProduct = ' ';
   String Price = ' ';
@@ -52,6 +87,17 @@ class _AddProductState extends State<AddProduct> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Row(children: [
+              ElevatedButton(onPressed: (){
+                getImageCamera();
+              }, child: Text('Camera')),
+              ElevatedButton(onPressed: (){
+                // getImageGallery();
+              }, child: Text('Gallery')),
+
+            ],),
+
+
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Form(

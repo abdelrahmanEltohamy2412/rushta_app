@@ -1,11 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:rushta_app/Design/home/storeScreen/storeScreen.dart';
-
-import 'package:rushta_app/provider/provider.dart';
-
-import '../Addorder/orderScreen.dart';
 import 'BrowsrScreen.dart';
 import 'ProfileScreen.dart';
 import 'homeScreen.dart';
