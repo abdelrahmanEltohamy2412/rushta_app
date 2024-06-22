@@ -28,7 +28,7 @@ class _AddProductState extends State<AddProduct> {
   File? file;
   getImageCamera()async{
     final ImagePicker picker = ImagePicker();
-    final XFile? imageCamera = await picker.pickImage(source: ImageSource.camera);
+    final XFile? imageCamera = await picker.pickImage(source: ImageSource.gallery);
     if (imageCamera !=null){
       file=File(imageCamera.path);
       var refStorage = FirebaseStorage.instance.ref('1.jpg');
@@ -41,20 +41,20 @@ class _AddProductState extends State<AddProduct> {
 
     });
   }
-   // getImageGallery()async{
-   //  final ImagePicker picker = ImagePicker();
-   //
-   //  final XFile? imageGallery = await picker.pickImage(source: ImageSource.gallery);
-   //  if(imageGallery!=null){
-   //    file=File(imageGallery.path);
-   //    var refStorage = FirebaseStorage.instance.ref('1.jpg');
-   //    await refStorage.putFile(file!);
-   //  }
-   //
-   //      setState(() {
-   //
-   //      });
-   // }
+   getImageGallery()async{
+    final ImagePicker picker = ImagePicker();
+
+    final XFile? imageGallery = await picker.pickImage(source: ImageSource.gallery);
+    if(imageGallery!=null){
+      file=File(imageGallery.path);
+      var refStorage = FirebaseStorage.instance.ref('1.jpg');
+      await refStorage.putFile(file!);
+    }
+
+        setState(() {
+
+        });
+   }
 
 
   String ProductName = ' ';
@@ -88,15 +88,21 @@ class _AddProductState extends State<AddProduct> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(children: [
-              ElevatedButton(onPressed: (){
-                getImageCamera();
-              }, child: Text('Camera')),
-              ElevatedButton(onPressed: (){
-                // getImageGallery();
-              }, child: Text('Gallery')),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: SizedBox(width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: MyTheme.primaryColor,
 
-            ],),
+                  ),
+                    onPressed: (){
+                  getImageGallery();
+                }, child: Text('Gallery',style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  color: Colors.white
+                ),)),
+              ),
+            ),
 
 
             Padding(
