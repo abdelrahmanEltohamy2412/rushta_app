@@ -281,7 +281,7 @@ class _CreateStoreScreenState extends State<CreateStoreScreen> {
           country: country, phoneNumber: phoneNumber);
        FireBaseUtils.addStoreToFireStore(storeData).timeout(Duration(microseconds: 500),
        onTimeout: (){
-
+              print('donnnnnnnnnnnnnnnnnnnnne');
          if(listProvider.storeDataList.isEmpty){
            listProvider.storeDataList.add(storeData);
            Navigator.push(

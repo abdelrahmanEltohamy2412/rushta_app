@@ -38,7 +38,7 @@ class _BrowseScreenState extends State<BrowseScreen> {
 
             ),itemCount: listProvider.productData.length,
             itemBuilder: (BuildContext context, int index) {
-            return MedicineItem(
+            return MedicineItem(imageString: listProvider.images[index],
               productData: listProvider.productData[index], storeData: listProvider.storeDataList[0],
 
 

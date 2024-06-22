@@ -77,7 +77,7 @@ class _ProductFoundedState extends State<ProductFounded> {
               padding:  EdgeInsets.all(8.0),
               child: Row(mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Image.asset('assets/images/img.png'),
+                  Image.asset('${listProvider.images[1]}'),
                   SizedBox(width: 10,),
                   Padding(
                     padding:  EdgeInsets.all(10.0),
@@ -129,7 +129,7 @@ class _ProductFoundedState extends State<ProductFounded> {
               padding: const EdgeInsets.all(8.0),
               child: Row(mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Image.asset('assets/images/img.png'),
+                  Image.asset('${listProvider.images[2]}'),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Column(children: [

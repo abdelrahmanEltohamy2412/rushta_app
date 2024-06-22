@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 import 'package:rushta_app/model/addressmodel.dart';
 import 'package:rushta_app/model/storedata.dart';
 import 'package:rushta_app/model/productmodel.dart';
 
 import '../../../mytheme.dart';
+import '../../../provider/provider.dart';
 import '../../Addorder/orderScreen.dart';
 
 
 class MedicineItem extends StatelessWidget {
-   MedicineItem({super.key, required this.productData,required this.storeData});
+   MedicineItem({super.key, required this.productData,required this.storeData,
+   required this.imageString});
   ProductData productData ;
   StoreData storeData ;
+   String imageString;
 
 
 
-  @override
+   @override
   Widget build(BuildContext context) {
+     var listProvider = Provider.of<ListProvider>(context) ;
     return
       InkWell(
         onTap: (){
@@ -32,7 +38,7 @@ class MedicineItem extends StatelessWidget {
           border: Border(
              right: BorderSide(color: MyTheme.grayColor, width: .5),
             bottom: BorderSide(color: MyTheme.grayColor, width: .5),
-            left: BorderSide(color: MyTheme.grayColor, width: .5),
+            left:   BorderSide(color: MyTheme.grayColor, width: .5),
 
 
 
@@ -42,7 +48,8 @@ class MedicineItem extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.asset('assets/images/img.png'),
+             Image.asset(imageString,height: MediaQuery.of(context).size.height*.18,),
+
             Padding(
               padding: const EdgeInsets.all(8.0),
               child:
@@ -92,5 +99,13 @@ class MedicineItem extends StatelessWidget {
         ),
             ),
       );/////////medcine iteem<<<<<<<<
+
   }
+
+   String? printImage(images) {
+
+
+
+
+   }
 }

@@ -66,7 +66,11 @@ class HomeScreen extends StatelessWidget {
                   child: SizedBox(
                     height: MediaQuery.of(context).size.height*.28 ,
                     child: ListView.separated(itemBuilder: (context, index){
-                      return MedicineItem(productData: listProvider.productData[index], storeData: listProvider.storeDataList[0],);},
+                      return MedicineItem(
+                        productData: listProvider.productData[index], 
+                        storeData: listProvider.storeDataList[0], imageString: listProvider.images[index],);
+
+                      },
                       itemCount: listProvider.productData.length,
                       scrollDirection: Axis.horizontal,
                       separatorBuilder: (BuildContext context, int index) {
@@ -112,10 +116,11 @@ class HomeScreen extends StatelessWidget {
                   child: SizedBox(
                     height: MediaQuery.of(context).size.height*.28,
                     child: ListView.separated(itemBuilder: (context, index){
-                      return MedicineItem(productData:
-                      listProvider.productData[index], storeData: listProvider.storeDataList[0]
+                      return MedicineItem(imageString: listProvider.images[index],productData:
+                      listProvider.productData[index], storeData: listProvider.storeDataList[0],
+
               
-                        ,
+
               
                       );
                     },

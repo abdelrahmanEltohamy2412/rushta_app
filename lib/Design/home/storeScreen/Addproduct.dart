@@ -33,6 +33,7 @@ class _AddProductState extends State<AddProduct> {
       file=File(imageCamera.path);
       var refStorage = FirebaseStorage.instance.ref('1.jpg');
       await refStorage.putFile(file!);
+      print(file?.path);
 
        //abdelerahman@gmail.com
     }

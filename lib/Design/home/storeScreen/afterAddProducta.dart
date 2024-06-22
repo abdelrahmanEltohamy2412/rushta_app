@@ -6,6 +6,7 @@ import 'package:rushta_app/mytheme.dart';
 import '../../../provider/provider.dart';
 
 import '../bottomNavigationBar.dart';
+import '../widgets/medicineItem.dart';
 import '../widgets/productofphara.dart';
 
 class AfterAddProduct extends StatefulWidget {
@@ -148,11 +149,14 @@ class _AfterAddProductState extends State<AfterAddProduct> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
-                height: MediaQuery.of(context).size.height*.25 ,
+                height: MediaQuery.of(context).size.height*.3 ,
                 child: ListView.separated(itemBuilder: (context, index){
-                  return ProductsOfPharmacy(productData:
+                  return MedicineItem(imageString: listProvider.images[index],productData:
                   listProvider.productData[index], storeData: listProvider.storeDataList[0],
-          
+
+
+
+
                   );
                 },
                   itemCount: listProvider.productData.length,
@@ -160,8 +164,8 @@ class _AfterAddProductState extends State<AfterAddProduct> {
                   separatorBuilder: (BuildContext context, int index) {
                     return SizedBox(width: MediaQuery.of(context).size.width*.03 , );
                   },
-          
-          
+
+
                 ),
               ),
             ),

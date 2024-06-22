@@ -10,6 +10,24 @@ class ListProvider extends ChangeNotifier {
   List <StoreData> storeDataList = [];
   List <ProductData> productData = [];
   List <AddressData> addressDataList = [ ];
+  List<String> images = [
+    'assets/images/Picture1.png',
+    'assets/images/Picture2.png',
+    'assets/images/Picture3.png',
+    'assets/images/Picture4.png',
+    'assets/images/Picture5.png',
+    'assets/images/Picture6.png',
+    'assets/images/Picture7.png',
+    'assets/images/Picture8.png',
+    'assets/images/Picture9.png',
+    'assets/images/Picture10.png',
+    'assets/images/Picture11.png',
+
+
+
+
+
+  ];
 
   void getDataStore() async{QuerySnapshot<StoreData> querySnapshot
   =await FireBaseUtils.getStoreDataCollection().get();
